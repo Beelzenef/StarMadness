@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laser_ship.wav-fa6ee38756b0841127eecd3492c6d6e4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/laser_ship.wav"
+dest_files=[ "res://.import/laser_ship.wav-fa6ee38756b0841127eecd3492c6d6e4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
