@@ -1,3 +1,7 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://scenes/characters/spaceship.tscn" type="PackedScene" id=1]
+
+[node name="World" type="Node2D"]
+
+[node name="Spaceship" parent="." instance=ExtResource( 1 )]
