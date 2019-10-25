@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/items/laser.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/sprites/laser_ship.png" type="Texture" id=2]
+[ext_resource path="res://scripts/laser_spaceship.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/laser_ship.png" type="Texture" id=3]
 
 [node name="laser" index="0" instance=ExtResource( 1 )]
 position = Vector2( 73.3019, 267.1 )
-velocity = Vector2( 0, -120 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, -100 )
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+[connection signal="area_entered" from="." to="." method="_on_laser_area_entered"]

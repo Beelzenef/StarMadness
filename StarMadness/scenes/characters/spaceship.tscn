@@ -6,7 +6,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.2863
 
-[node name="Spaceship" type="Area2D"]
+[node name="Spaceship" type="Area2D" groups=[
+"spaceship",
+]]
 position = Vector2( 83.7901, 296.978 )
 script = ExtResource( 1 )
 __meta__ = {

@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/items/laser.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/sprites/laser_enemy.png" type="Texture" id=2]
+[ext_resource path="res://scripts/laser_enemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/laser_enemy.png" type="Texture" id=3]
 
 [node name="laser" instance=ExtResource( 1 )]
 position = Vector2( 82.9631, 38.2492 )
+script = ExtResource( 2 )
 velocity = Vector2( 0, 100 )
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+[connection signal="area_entered" from="." to="." method="_on_laser_area_entered"]

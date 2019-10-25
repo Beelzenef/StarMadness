@@ -3,8 +3,11 @@
 [ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 17.4904
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=[
+"enemy",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

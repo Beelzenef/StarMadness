@@ -13,7 +13,6 @@ func _ready():
 
 func _process(delta):
 	translate(velocity * delta)
-	
 
 func show_flare():
 	var new_flare = flare_preload.instance()
