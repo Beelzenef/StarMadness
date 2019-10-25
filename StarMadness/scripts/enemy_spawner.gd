@@ -1,14 +1,17 @@
 extends Node2D
 
-var enemyk_preload = preload("res://scenes/characters/EnemyK.tscn")
+var enemies = [
+ 	preload("res://scenes/characters/enemy_k.tscn"),
+	preload("res://scenes/characters/enemy_c.tscn")
+]
 
 func spawn_enemy():
 	randomize()
 	
-	var new_enemy = enemyk_preload.instance()
+	var new_enemy = enemies[randi() % enemies.size()].instance()
 	
 	var enemy_position = Vector2()
-	enemy_position.x = rand_range(16, get_viewport_rect().size.y - 16)
+	enemy_position.x = rand_range(16, get_viewport_rect().size.x - 16)
 	enemy_position.y = -16
 	
 	print(enemy_position)
