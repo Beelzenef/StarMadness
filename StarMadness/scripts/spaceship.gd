@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var laser_preload = preload("res://scenes/items/laser_spaceship.tscn")
+onready var explosion_preload = preload("res://scenes/items/explosion.tscn")
 
 export var armor = 4 setget set_armor
 
@@ -31,8 +32,15 @@ func create_laser(initial_pos):
 	laser_created.global_position = initial_pos
 	get_parent().add_child(laser_created)
 
+func create_explosion():
+	var explosion_created = explosion_preload.instance()
+	explosion_created.global_position = position
+	get_parent().add_child(explosion_created)
+
 func set_armor(value):
 	armor = value
 	if armor <= 0:
+		var explosion_pos = global_position
+		create_explosion()
 		queue_free()
 		# game over
