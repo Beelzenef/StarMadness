@@ -14,7 +14,7 @@ func spawn_enemy():
 	enemy_position.x = rand_range(16, get_viewport_rect().size.x - 16)
 	enemy_position.y = -16
 	
-	print(enemy_position)
+	#print(enemy_position)
 	new_enemy.position = enemy_position
 	
 	add_child(new_enemy)
