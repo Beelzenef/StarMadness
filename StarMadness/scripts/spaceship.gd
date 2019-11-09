@@ -5,7 +5,10 @@ onready var explosion_preload = preload("res://scenes/items/explosion.tscn")
 
 export var armor = 4 setget set_armor
 
+signal armor_changed
+
 func _ready():
+	connect("armor_changed", get_node("../HUD"), "_on_armor_changed")
 	set_process(true)
 
 func _process(delta):
@@ -39,6 +42,9 @@ func create_explosion():
 
 func set_armor(value):
 	armor = value
+	
+	emit_signal("armor_changed", armor) 
+	
 	if armor <= 0:
 		var explosion_pos = global_position
 		create_explosion()
