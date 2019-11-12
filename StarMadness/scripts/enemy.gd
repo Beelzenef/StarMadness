@@ -19,6 +19,7 @@ func _process(delta):
 func set_armor(value):
 	armor = value
 	if armor <= 0:
+		get_tree().get_root().get_node("World/HUD/spr_score").score += 5
 		create_explosion()
 
 func _on_Enemy_area_entered(area):
