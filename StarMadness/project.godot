@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="StarMadness"
-run/main_scene="res://scenes/levels/main.tscn"
+run/main_scene="res://scenes/levels/stage_menu.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/characters/spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/items/enemy_spawner.tscn" type="PackedScene" id=2]
@@ -7,8 +7,14 @@
 [ext_resource path="res://assets/sprites/score.png" type="Texture" id=5]
 [ext_resource path="res://scripts/score.gd" type="Script" id=6]
 [ext_resource path="res://assets/fonts/m5x7.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/sprites/button_normal.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/button_pressed.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/button_hover.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 7 )
 
 [node name="World" type="Node2D"]
@@ -42,3 +48,25 @@ margin_bottom = 5.34569
 custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 2
+
+[node name="menu_button" type="TextureButton" parent="HUD"]
+visible = false
+margin_left = 65.0981
+margin_top = 151.309
+margin_right = 112.098
+margin_bottom = 167.309
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="HUD/menu_button"]
+margin_left = 10.9659
+margin_top = 0.0961914
+margin_right = 36.9659
+margin_bottom = 14.0962
+custom_fonts/font = SubResource( 2 )
+text = "MENU"
+[connection signal="pressed" from="HUD/menu_button" to="HUD" method="_on_menu_button_pressed"]

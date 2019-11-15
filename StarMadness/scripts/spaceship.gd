@@ -49,4 +49,4 @@ func set_armor(value):
 		var explosion_pos = global_position
 		create_explosion()
 		queue_free()
-		# game over
+		get_tree().get_root().get_node("World/HUD/menu_button").show()
