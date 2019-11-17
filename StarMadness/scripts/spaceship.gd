@@ -15,8 +15,8 @@ func _process(delta):
 	var motion = (get_global_mouse_position().x - position.x) * 0.1
 	translate(Vector2(motion, 0))
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		shoot()
+	#if Input.is_action_just_pressed("ui_accept"):
+	#	shoot()
 	
 	var view_size = get_viewport_rect().size
 	var pos = position
@@ -50,3 +50,6 @@ func set_armor(value):
 		create_explosion()
 		queue_free()
 		get_tree().get_root().get_node("World/HUD/menu_button").show()
+
+func _on_ShootButton_pressed():
+	shoot()
