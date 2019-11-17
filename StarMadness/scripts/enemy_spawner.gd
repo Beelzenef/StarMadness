@@ -5,6 +5,8 @@ var enemies = [
 	preload("res://scenes/characters/enemy_c.tscn")
 ]
 
+var generate_enemies = true
+
 func spawn_enemy():
 	randomize()
 	
@@ -20,5 +22,6 @@ func spawn_enemy():
 	add_child(new_enemy)
 
 func _on_Timer_timeout():
-	spawn_enemy()
-	$Timer.start()
+	if generate_enemies:
+		spawn_enemy()
+		$Timer.start()

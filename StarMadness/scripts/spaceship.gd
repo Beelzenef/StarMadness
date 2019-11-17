@@ -46,10 +46,14 @@ func set_armor(value):
 	emit_signal("armor_changed", armor) 
 	
 	if armor <= 0:
-		var explosion_pos = global_position
-		create_explosion()
-		queue_free()
-		get_tree().get_root().get_node("World/HUD/menu_button").show()
-
+		game_over()
+		
 func _on_ShootButton_pressed():
 	shoot()
+
+func game_over():
+	var explosion_pos = global_position
+	create_explosion()
+	queue_free()
+	get_tree().get_root().get_node("World/HUD/menu_button").show()
+	get_tree().get_root().get_node("World/enemy_spawner").generate_enemies = false
