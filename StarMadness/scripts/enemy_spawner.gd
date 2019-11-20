@@ -5,6 +5,9 @@ var enemies = [
 	preload("res://scenes/characters/enemy_c.tscn")
 ]
 
+var powerups = [
+	preload("res://scenes/items/power_up_armor.tscn")
+]
 var generate_enemies = true
 
 func spawn_enemy():
@@ -21,7 +24,24 @@ func spawn_enemy():
 	
 	add_child(new_enemy)
 
+func spawn_powerup():
+	randomize()
+	
+	var new_powerup = powerups[randi() % powerups.size()].instance()
+	
+	var powerup_position = Vector2()
+	powerup_position.x = rand_range(16, get_viewport_rect().size.x - 16)
+	
+	new_powerup.position = powerup_position
+	
+	add_child(new_powerup)
+
 func _on_Timer_timeout():
 	if generate_enemies:
 		spawn_enemy()
-		$Timer.start()
+		$enemies_timer.start()
+
+func _on_powerup_timers_timeout():
+	if generate_enemies:
+		spawn_powerup()
+		$powerups_timer.start() 

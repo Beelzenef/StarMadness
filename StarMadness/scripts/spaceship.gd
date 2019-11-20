@@ -41,6 +41,9 @@ func create_explosion():
 	get_parent().add_child(explosion_created)
 
 func set_armor(value):
+	if value > 4:
+		return
+	
 	armor = value
 	
 	emit_signal("armor_changed", armor) 
