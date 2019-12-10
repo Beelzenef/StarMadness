@@ -6,7 +6,8 @@ var enemies = [
 ]
 
 var powerups = [
-	preload("res://scenes/items/power_up_armor.tscn")
+	preload("res://scenes/items/power_up_armor.tscn"),
+	preload("res://scenes/items/power_up_laser.tscn")
 ]
 var generate_enemies = true
 

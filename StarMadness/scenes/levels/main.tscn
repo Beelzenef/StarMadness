@@ -69,4 +69,11 @@ margin_right = 36.9659
 margin_bottom = 14.0962
 custom_fonts/font = SubResource( 2 )
 text = "MENU"
+
+[node name="ShootButton" type="TextureButton" parent="HUD"]
+margin_left = -1.0
+margin_top = 264.0
+margin_right = 179.0
+margin_bottom = 319.0
 [connection signal="pressed" from="HUD/menu_button" to="HUD" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="HUD/ShootButton" to="Spaceship" method="_on_ShootButton_pressed"]

@@ -7,6 +7,8 @@ export var armor = 4 setget set_armor
 
 signal armor_changed
 
+var ammo = 20
+
 func _ready():
 	connect("armor_changed", get_node("../HUD"), "_on_armor_changed")
 	set_process(true)
@@ -24,11 +26,14 @@ func _process(delta):
 	position = pos
 
 func shoot():
-	var cannon_left = $CannonLeft.global_position
-	var cannon_right = $CannonRight.global_position
-	
-	create_laser(cannon_left)
-	create_laser(cannon_right)
+	if ammo > 0:
+		var cannon_left = $CannonLeft.global_position
+		var cannon_right = $CannonRight.global_position
+		
+		create_laser(cannon_left)
+		create_laser(cannon_right)
+		
+		ammo -= 1
 
 func create_laser(initial_pos):
 	var laser_created = laser_preload.instance()
@@ -50,7 +55,7 @@ func set_armor(value):
 	
 	if armor <= 0:
 		game_over()
-		
+
 func _on_ShootButton_pressed():
 	shoot()
 
@@ -60,3 +65,7 @@ func game_over():
 	queue_free()
 	get_tree().get_root().get_node("World/HUD/menu_button").show()
 	get_tree().get_root().get_node("World/enemy_spawner").generate_enemies = false
+
+func increase_ammo():
+	ammo += 5
+
