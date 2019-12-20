@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/characters/spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/items/enemy_spawner.tscn" type="PackedScene" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://assets/sprites/score.png" type="Texture" id=5]
 [ext_resource path="res://scripts/score.gd" type="Script" id=6]
 [ext_resource path="res://assets/fonts/m5x7.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://assets/sprites/button_normal.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/button_pressed.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/button_hover.png" type="Texture" id=10]
+[ext_resource path="res://scripts/ammo.gd" type="Script" id=8]
+[ext_resource path="res://assets/sprites/button_normal.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/button_pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/button_hover.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
@@ -33,7 +34,7 @@ hframes = 5
 frame = 4
 
 [node name="spr_score" type="Sprite" parent="HUD"]
-position = Vector2( 144.764, 16.9645 )
+position = Vector2( 150, 15 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -49,15 +50,41 @@ custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 2
 
+[node name="spr_ammo" type="Sprite" parent="HUD"]
+position = Vector2( 75.94, 15 )
+texture = ExtResource( 5 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="label_ammo" type="Label" parent="HUD/spr_ammo"]
+margin_left = -18.8708
+margin_top = -9.66374
+margin_right = 21.1292
+margin_bottom = 4.33626
+custom_fonts/font = SubResource( 1 )
+text = "20"
+align = 2
+
+[node name="label_ammotitle" type="Label" parent="HUD/spr_ammo"]
+margin_left = -32.3539
+margin_top = -9.74076
+margin_right = 7.64611
+margin_bottom = 4.25924
+custom_fonts/font = SubResource( 1 )
+text = "AMMO"
+align = 2
+
 [node name="menu_button" type="TextureButton" parent="HUD"]
 visible = false
 margin_left = 65.0981
 margin_top = 151.309
 margin_right = 112.098
 margin_bottom = 167.309
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }

@@ -6,11 +6,13 @@ onready var explosion_preload = preload("res://scenes/items/explosion.tscn")
 export var armor = 4 setget set_armor
 
 signal armor_changed
+signal ammo_changed
 
 var ammo = 20
 
 func _ready():
 	connect("armor_changed", get_node("../HUD"), "_on_armor_changed")
+	connect("ammo_changed", get_node("../HUD"), "_on_ammo_changed")
 	set_process(true)
 
 func _process(delta):
@@ -34,6 +36,7 @@ func shoot():
 		create_laser(cannon_right)
 		
 		ammo -= 1
+		emit_signal("ammo_changed", ammo) 
 
 func create_laser(initial_pos):
 	var laser_created = laser_preload.instance()
@@ -68,4 +71,4 @@ func game_over():
 
 func increase_ammo():
 	ammo += 5
-
+	emit_signal("ammo_changed", ammo) 
