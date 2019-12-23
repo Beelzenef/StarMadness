@@ -21,7 +21,7 @@ font_data = ExtResource( 7 )
 [node name="World" type="Node2D"]
 
 [node name="Spaceship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 83.79, 290 )
+position = Vector2( 82.7939, 283.359 )
 
 [node name="enemy_spawner" parent="." instance=ExtResource( 2 )]
 
@@ -99,17 +99,21 @@ custom_fonts/font = SubResource( 2 )
 text = "MENU"
 
 [node name="ShootButton" type="Button" parent="HUD"]
-margin_top = 308.0
+margin_top = 300.995
 margin_right = 180.0
-margin_bottom = 328.0
+margin_bottom = 320.995
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ShootLabel" type="Label" parent="HUD/ShootButton"]
-margin_left = 0.886765
-margin_top = -0.622681
-margin_right = 179.887
-margin_bottom = 13.3773
+margin_left = 0.667969
+margin_top = 1.0
+margin_right = 179.668
+margin_bottom = 20.0
 custom_fonts/font = SubResource( 2 )
 text = "FIRE!"
 align = 1
+valign = 1
 [connection signal="pressed" from="HUD/menu_button" to="HUD" method="_on_menu_button_pressed"]
-[connection signal="pressed" from="HUD/ShootButton" to="Spaceship" method="_on_ShootButton_pressed"]
+[connection signal="mouse_entered" from="HUD/ShootButton" to="Spaceship" method="_on_ShootButton_mouse_entered"]

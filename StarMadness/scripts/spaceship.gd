@@ -59,8 +59,8 @@ func set_armor(value):
 	if armor <= 0:
 		game_over()
 
-func _on_ShootButton_pressed():
-	shoot()
+#func _on_ShootButton_pressed():
+#	shoot()
 
 func game_over():
 	var explosion_pos = global_position
@@ -72,3 +72,6 @@ func game_over():
 func increase_ammo():
 	ammo += 5
 	emit_signal("ammo_changed", ammo) 
+
+func _on_ShootButton_mouse_entered():
+	shoot()
