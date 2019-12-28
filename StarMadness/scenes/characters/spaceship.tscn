@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/spaceship.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/ship.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/laser_ship.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/hit_ship.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.2863
@@ -26,3 +28,9 @@ position = Vector2( -13.5221, -7.11691 )
 
 [node name="CannonRight" type="Position2D" parent="."]
 position = Vector2( 13.2849, -7.11691 )
+
+[node name="laser_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="damage_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

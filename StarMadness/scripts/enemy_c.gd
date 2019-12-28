@@ -18,6 +18,7 @@ func shoot():
 	var new_laser = laser_enemy_preload.instance()
 	new_laser.global_position = laser_position
 	get_parent().add_child(new_laser)
+	$laser_audio.play()
 
 func _on_Timer_timeout():
 	shoot()

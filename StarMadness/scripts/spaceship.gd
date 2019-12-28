@@ -36,7 +36,8 @@ func shoot():
 		create_laser(cannon_right)
 		
 		ammo -= 1
-		emit_signal("ammo_changed", ammo) 
+		emit_signal("ammo_changed", ammo)
+		$laser_audio.play()
 
 func create_laser(initial_pos):
 	var laser_created = laser_preload.instance()
@@ -51,6 +52,9 @@ func create_explosion():
 func set_armor(value):
 	if value > 4:
 		return
+	
+	if (armor > value):
+		$damage_audio.play()
 	
 	armor = value
 	

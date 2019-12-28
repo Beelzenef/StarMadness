@@ -38,5 +38,5 @@ func create_explosion():
 	var explosion_created = explosion_preload.instance()
 	explosion_created.global_position = position
 	get_parent().add_child(explosion_created)
-	
+	$explosion_audio.play()
 	queue_free()
